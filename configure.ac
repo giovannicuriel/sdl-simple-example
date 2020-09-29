@@ -9,9 +9,12 @@ AC_CONFIG_HEADERS([config.h])
 AM_INIT_AUTOMAKE([-Wall -Werror foreign]) 
 # Checks for programs.
 AC_PROG_CXX
+PKG_PROG_PKG_CONFIG
 
 # Checks for libraries.
-
+PKG_CHECK_MODULES([SDL], [
+    sdl2
+])
 # Checks for header files.
 
 # Checks for typedefs, structures, and compiler characteristics.
