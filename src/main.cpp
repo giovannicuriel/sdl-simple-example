@@ -238,7 +238,7 @@ int main(void) {
   bool shouldExit = false;
   Window window = Window(&shouldExit);
   window.init();
-  SDL_Thread * mainThread = SDL_CreateThread(mainLoop, "MainWorldLoop", (void *)&window);
+  // SDL_Thread * mainThread = SDL_CreateThread(mainLoop, "MainWorldLoop", (void *)&window);
 
   SDL_Event event;
   while (!shouldExit) {
@@ -248,11 +248,12 @@ int main(void) {
         case SDL_QUIT: 
           shouldExit = true;
           break;
-        case SDL_KEYUP:
+        case SDL_KEYDOWN:
           window.processKeyboardEvent(event);
           break;
       }
     }
+    window.update();
   }
 	return 0;
 }
